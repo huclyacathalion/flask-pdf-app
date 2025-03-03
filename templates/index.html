@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Upload de Imagem</h5>
+            </div>
+            <div class="card-body">
+                <form id="uploadForm" class="mb-4">
+                    <div class="mb-3">
+                        <label for="imageFile" class="form-label">Selecione uma imagem (JPG, PNG)</label>
+                        <input type="file" class="form-control" id="imageFile" accept=".jpg,.jpeg,.png" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="uploadBtn">
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        Gerar PDF
+                    </button>
+                </form>
+
+                <div id="alertArea"></div>
+
+                <div id="previewArea" class="d-none">
+                    <h5 class="mb-3">Preview do PDF</h5>
+                    <div id="pdfPreview" class="mb-3" style="height: 500px; border: 1px solid var(--bs-border-color);"></div>
+                    <button id="downloadBtn" class="btn btn-success">
+                        Baixar PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/pdf_preview.js') }}"></script>
+{% endblock %}
